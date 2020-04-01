@@ -1,0 +1,18 @@
+- name: install gcc etc
+  yum: name={{item}} state=present
+  with_items:
+  - gcc
+  - gcc-c++
+  - autoconf
+  - automake
+  - cmake
+  - libtool
+
+- name: git clone protobuf
+  git:
+    repo: https://github.com/google/protobuf.git
+    dest: /usr/local/src/protobuf
+    accept_hostkey: yes
+
+- name: install protoc
+  shell: cd /usr/local/src/protobuf && ./autogen.sh && ./configure && make install

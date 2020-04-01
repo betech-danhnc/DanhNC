@@ -1,0 +1,3 @@
+- name: create database
+  shell: mysql -uroot < /vagrant/web/database/database.sql
+  ignore_errors: yes

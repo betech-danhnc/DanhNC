@@ -1,0 +1,5 @@
+# php.d memcahce.ini 
+- name: copy memcache.ini
+  copy: src=memcache.ini dest=/etc/php.d/ backup=yes
+
+

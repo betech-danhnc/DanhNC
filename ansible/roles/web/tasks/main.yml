@@ -1,0 +1,20 @@
+# epel & remi
+- include: set-epel_remi.yml 
+
+# nginx 1.8
+- include: set-nginx.yml
+
+# php 7.2
+- include: set-php7.2.yml
+
+# php72-php-fpm
+- include: set-php-fpm.yml
+
+# ruby
+- include: set-ruby.yml
+
+# go(protoc-gen-docのため)
+- include: set-go.yml
+
+# protocol buffer
+- include: set-pb.yml

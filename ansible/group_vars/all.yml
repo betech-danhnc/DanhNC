@@ -1,0 +1,5 @@
+# server name
+server_name: local-blab.betech-vn.com
+
+# fuel env
+fuel_env: local

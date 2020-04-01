@@ -1,0 +1,20 @@
+- name: php72-php-fpm install by remi
+  yum: name=php-fpm enablerepo=remi-php72 state=present
+
+- name: "php-fpm www.conf 設定"
+  copy: src=../files/php-fpm/php-fpm.d/www.conf  dest=/etc/php-fpm.d/ backup=yes
+
+- name: mkdir -p /var/log/php72-php-fpm
+  shell: mkdir -p /var/log/php72-php-fpm
+
+- name: mkdir -p /var/run/php-fpm
+  shell: mkdir -p /var/run/php-fpm
+
+- name: systemctl restart php-fpm
+  service: name=php-fpm state=restarted
+
+- name: systemctl enable php-fpm
+  service: name=php-fpm enabled=yes
+
+- name: chmod -R 777 /var/run/php-fpm
+  shell: chmod -R 777 /var/run/php-fpm

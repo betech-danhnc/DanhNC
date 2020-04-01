@@ -1,0 +1,4 @@
+# timezone
+- name: "change timezone to Asia/Tokyo"
+  shell: cp -f /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
+

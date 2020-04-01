@@ -1,0 +1,14 @@
+- name: rubygems install
+  yum: name=rubygems state=present
+
+- name: gcc install
+  yum: name=gcc state=present
+
+- name: prmd install
+  shell: gem install prmd
+
+- name: path
+  shell: echo 'export PATH="/usr/local/bin:$PATH"' >> ~/.bashrc
+
+- name: path
+  shell: export PATH="/usr/local/bin:$PATH"

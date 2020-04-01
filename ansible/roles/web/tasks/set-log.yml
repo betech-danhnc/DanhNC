@@ -1,0 +1,10 @@
+- name: mkdir logfolder
+  shell: mkdir -p /var/log/ci/; chown apache /var/log/ci/
+
+- name: logrotate 
+  copy: src=ci dest=/etc/logrotate.d/ci
+
+- name: logrotate 
+  copy: src=nodejs dest=/etc/logrotate.d/nodejs
+
+

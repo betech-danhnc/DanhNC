@@ -1,0 +1,3 @@
+- include: set-mysql.yml
+
+- include: init-data.yml

@@ -1,0 +1,3 @@
+- hosts: init
+  roles:
+        - init

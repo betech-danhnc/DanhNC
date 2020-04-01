@@ -1,0 +1,46 @@
+- file:
+    src: /vagrant
+    dest: /var/www/virtualhost/{{server_name}}
+    state: link
+    mode: 0777
+
+# install
+- name: "yum.repo 設定"
+  copy: src=../files/nginx/etc/yum.repos.d/nginx.repo  dest=/etc/yum.repos.d/ backup=yes
+
+- name: nginx install by nginx repo
+  yum: name=nginx state=present
+
+# ssl setting
+- name: mkdir -p /etc/nginx/ssl
+  shell: mkdir -p /etc/nginx/ssl ; chmod 777 /etc/nginx/ssl
+  ignore_errors: yes
+
+- name: cp server.crt
+  copy: src=../files/nginx/ssl/server.crt dest=/etc/nginx/ssl/ backup=yes
+
+- name: cp server.key
+  copy: src=../files/nginx/ssl/server.key dest=/etc/nginx/ssl/ backup=yes
+
+# conf setting
+- name: "default.conf 設定"
+  template : src=../files/nginx/conf.d/default.conf dest=/etc/nginx/conf.d/ backup=yes
+
+- name: "own.conf 設定"
+  template : src=../files/nginx/conf.d/own.conf dest=/etc/nginx/conf.d/ backup=yes
+
+- name: systemctl start nginx
+  service: name=nginx state=restarted
+
+- name: systemctl enable nginx
+  service: name=nginx enabled=yes
+
+- file:
+    src: /vagrant/web
+    dest: /var/www/virtualhost/{{server_name}}
+    state: link
+    mode: 0777
+
+- name: chown tfuser.tfuser
+  shell: chown tfuser.tfuser /var/www/virtualhost/{{server_name}}/public
+  ignore_errors: yes

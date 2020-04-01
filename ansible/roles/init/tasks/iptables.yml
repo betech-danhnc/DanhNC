@@ -1,0 +1,6 @@
+- name: firewalld stop
+  service: name=firewalld state=stopped
+
+- name: firewalld autostart off
+  command: chkconfig firewalld off
+
