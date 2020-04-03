@@ -20,16 +20,7 @@ PRIMARY KEY ( `id` )
 
 INSERT INTO `admin_modules` (`id`, `name`, `description`, `status`, `created_date`, `created_by`) VALUES
 (1, 'admin', 'Admin module', 1, '2019-03-25 16:01:17', 0),
-(2, 'api', 'API module', 1, '2019-03-25 16:01:17', 0),
-(4, 'hr', 'Human resource module', 1, '2019-04-16 09:45:25', 0),
-(5, 'administrative', 'Administrative module', 1, '2019-06-17 21:21:07', 0),
-(6, 'accounting', 'Accounting module', 1, '2019-06-17 21:21:39', 0),
-(7, 'dental', 'Dental module', 1, '2019-06-17 21:36:12', 0),
-(8, 'department', 'Department module', 1, '2019-06-17 21:45:50', 0),
-(9, 'asset', 'Asset Management module', 1, '2019-06-17 22:04:47', 0),
-(10, 'product', 'Product module', 1, '2019-06-17 22:09:37', 0),
-(11, 'report', 'Report Module', 1, '2019-06-17 22:12:19', 0),
-(12, 'medical', 'Medical module', 1, '2019-07-12 11:31:56', 0);
+(2, 'api', 'API module', 1, '2019-03-25 16:01:17', 0);
 
 DROP TABLE IF EXISTS `admin_controllers`;
 CREATE TABLE `admin_controllers` (
@@ -116,13 +107,11 @@ CREATE TABLE `admin_users` (
     `fullname`      varchar(150) DEFAULT NULL COMMENT 'User fullname',
     `address`       text,
     `house_numbers` text COMMENT 'House number',
-    `city_id`       smallint(5) UNSIGNED NOT NULL DEFAULT '0' COMMENT 'City/Province',
     `district_id`   mediumint(5) UNSIGNED NOT NULL DEFAULT '0' COMMENT 'District',
     `ward_id`       mediumint(7) UNSIGNED NOT NULL DEFAULT '0' COMMENT 'Ward',
     `street_id`     mediumint(7) UNSIGNED NOT NULL DEFAULT '0' COMMENT 'Streets',
     `role_id`       smallint(11) UNSIGNED NOT NULL COMMENT 'Id of roles',
     `birthday`      date DEFAULT NULL COMMENT 'Birthday',
-    `career_id`     smallint(11) UNSIGNED NOT NULL DEFAULT '0' COMMENT 'Id of careed',
     `status`        tinyint(3) UNSIGNED NOT NULL DEFAULT '1' COMMENT 'Status',
     `created_date`  datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Created date',
     `created_by`    int(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT 'Created by',
@@ -139,9 +128,9 @@ INSERT INTO `admin_controller_actions` (`id`, `controller_id`, `action`, `name`,
 (20, 5, 'update', 'Update', 1, 1, '2019-04-06 17:12:27', 0),
 (21, 5, 'delete', 'Delete', 1, 1, '2019-04-06 17:12:40', 0);
 
-INSERT INTO `admin_users` (`id`, `username`, `phone`, `email`, `gender`, `password_hash`, `temp_password`, `fullname`, `address`, `house_numbers`, `city_id`, `district_id`, `ward_id`, `street_id`, `role_id`, `birthday`, `career_id`, `status`, `created_date`, `created_by`) VALUES
-(1, 'superadmin', '0123456789', 'superadmin@system.com', 1, 'bc4f26a7b672f987c37138ac778dfec4', ' 5dc0ec382aff00.29235343', 'Super Admin', '1', '1', 1, 1, 1, 1, 1, '2019-03-01', NULL, 1, '2019-03-31 21:05:15', 100),
-(2, 'admin', '-', '-', 1, 'bc4f26a7b672f987c37138ac778dfec4', ' 5dc0ec382aff00.29235343', '-', '1', '62', 2, 1, 1, 34, 2, '1996-03-27', NULL, 1, '2019-04-05 17:42:57', 1);
+INSERT INTO `admin_users` (`id`, `username`, `phone`, `email`, `gender`, `password_hash`, `temp_password`, `fullname`, `address`, `house_numbers`, `district_id`, `ward_id`, `street_id`, `role_id`, `birthday`, `status`, `created_date`, `created_by`) VALUES
+(1, 'superadmin', '0123456789', 'superadmin@system.com', 1, 'bc4f26a7b672f987c37138ac778dfec4', ' 5dc0ec382aff00.29235343', 'Super Admin', '1', '1', 1, 1, 1, 1, '2019-03-01', 1, '2019-03-31 21:05:15', 100),
+(2, 'admin', '-', '-', 1, 'bc4f26a7b672f987c37138ac778dfec4', ' 5dc0ec382aff00.29235343', '-', '1', '62', 1, 1, 34, 2, '1996-03-27', 1, '2019-04-05 17:42:57', 1);
 
 DROP TABLE IF EXISTS `admin_settings`;
 CREATE TABLE `admin_settings` (
@@ -167,7 +156,7 @@ INSERT INTO `admin_controller_actions` (`id`, `controller_id`, `action`, `name`,
 INSERT INTO `admin_settings` (`id`, `updated`, `key`, `value`, `description`) VALUES
 (1, '2019-10-28 17:57:52', 'OTP_LIMIT_TIME', '5000', 'OTP timeout'),
 (2, '2019-10-28 17:57:52', 'OTP_LEN', '6', 'OTP length'),
-(3, '2019-10-28 17:57:52', 'DOMAIN', 'https://betech-vn.com/', 'Domain'),
+(3, '2019-10-28 17:57:52', 'DOMAIN', 'http://local-blab.betech-vn.com/', 'Domain'),
 (4, '2019-10-28 17:57:52', 'LANGUAGE', 'ja-JP', 'Language'),
 (5, '2019-10-28 17:57:52', 'LIST_PAGE_SIZE', '30', 'Number of item page'),
 (6, '2019-04-05 13:42:17', 'LOGGER_SETTINGS', '1', 'On/Off feature logger'),
@@ -184,11 +173,11 @@ INSERT INTO `admin_settings` (`id`, `updated`, `key`, `value`, `description`) VA
 (17, '2019-10-28 17:57:52', 'EMAIL_TRANSPORT_PASSWORD', '', 'Password email'),
 (18, '2019-10-28 17:57:52', 'GENERAL_LOG', '1', 'Logger'),
 (19, '2019-10-28 17:57:52', 'THEME_FRONT', 'university', 'Front-end theme'),
-(20, '2019-10-28 17:57:52', 'ADMIN_EMAIL', 'oouchi@bisync.co.jp', 'Admin Email'),
-(21, '2019-10-28 17:57:52', 'EMAIL_TRANSPORT_USERNAME', 'oouchi@bisync.co.jp', 'Username'),
+(20, '2019-10-28 17:57:52', 'ADMIN_EMAIL', 'admin@gmain', 'Admin Email'),
+(21, '2019-10-28 17:57:52', 'EMAIL_TRANSPORT_USERNAME', 'admin@gmain', 'Username'),
 (22, '2019-10-28 17:57:52', 'EMAIL_MAIN_SUBJECT', 'O2O', 'Mail subject'),
-(23, '2019-10-28 17:57:52', 'ADMIN_PHONE', '(+84) 28 7305 6560', 'Admin phone'),
-(24, '2019-10-28 17:57:52', 'ADMIN_ADDRESS', '137/30 Nguyễn Cư Trinh, Phường Nguyễn Cư Trinh, Quận 1, TP HCM', 'Company address'),
+(23, '2019-10-28 17:57:52', 'ADMIN_PHONE', '0123456789', 'Admin phone'),
+(24, '2019-10-28 17:57:52', 'ADMIN_ADDRESS', 'Address', 'Company address'),
 (25, '2019-10-28 17:57:52', 'THEME_LOGIN', 'university', 'Login theme'),
 (26, '2019-10-28 17:57:52', 'PASSWORD_LEN_MIN', '6', 'Min length of password');
 

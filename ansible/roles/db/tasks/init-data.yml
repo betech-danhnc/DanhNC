@@ -2,5 +2,5 @@
   shell: mysql -uroot < /vagrant/web/database/database.sql
   ignore_errors: yes
 - name: create tables
-  shell: mysql -uroot < /vagrant/web/database/origin/001_core_tables.sql
+  shell: mysql -uroot --default-character-set=utf8 betech_blab < /vagrant/web/database/origin/001_core_tables.sql
   ignore_errors: yes
