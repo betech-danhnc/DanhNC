@@ -62,3 +62,9 @@
     $ vagrant destroy
 ```
 
+- Reflect Virtual machine:
+
+``` bash
+    $ cd {path/to/projectroot}
+    $ vagrant up --provision
+```
