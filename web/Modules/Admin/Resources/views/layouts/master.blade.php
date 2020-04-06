@@ -1,5 +1,4 @@
 <?php
-
 $theme = 'themes/cooladmin/';
 ?>
 
@@ -11,8 +10,8 @@ $theme = 'themes/cooladmin/';
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>Module Admin</title>
 
-       {{-- Laravel Mix - CSS File --}}
-       
+        {{-- Laravel Mix - CSS File --}}
+
         <!-- Fontfaces CSS-->
         <link href="{{ url($theme . 'css/font-face.css') }}" rel="stylesheet" media="all">
         <link href="{{ url($theme . 'vendor/font-awesome-4.7/css/font-awesome.min.css') }}" rel="stylesheet" media="all">
@@ -41,7 +40,7 @@ $theme = 'themes/cooladmin/';
             <!-- MENU SIDEBAR-->
             @include('admin::layouts.menu')
             <!-- END MENU SIDEBAR-->
-            
+
             <!-- PAGE CONTAINER-->
             <div class="page-container2">
                 <!-- HEADER DESKTOP-->
@@ -146,10 +145,10 @@ $theme = 'themes/cooladmin/';
                         </div>
                     </div>
                 </header>
-                
+
                 @include('admin::layouts.menu_mobile')
                 <!-- END HEADER DESKTOP-->
-                
+
                 <!-- BREADCRUMB-->
                 <section class="au-breadcrumb m-t-75">
                     <div class="section__content section__content--p30">
@@ -178,16 +177,20 @@ $theme = 'themes/cooladmin/';
                     </div>
                 </section>
                 <!-- END BREADCRUMB-->
-                
+
                 <!-- MAIN CONTENT-->
-                <div class="container">
-                    @yield('content')
+                <div class="main-content">
+                    <div class="section__content section__content--p30">
+                        <div class="container-fluid">
+                            @yield('content')
+                        </div>
+                    </div>
                 </div>
                 <!-- END MAIN CONTENT-->
             </div>
             <!-- END PAGE CONTAINER-->
         </div>
-        
+
         <script src="{{ url($theme . 'vendor/jquery-3.2.1.min.js') }}"></script>
         <script src="{{ url($theme . 'vendor/bootstrap-4.1/popper.min.js') }}"></script>
         <script src="{{ url($theme . 'vendor/bootstrap-4.1/bootstrap.min.js') }}"></script>
