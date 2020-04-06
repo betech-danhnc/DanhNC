@@ -4,3 +4,4 @@
 /web/storage/logs/
 /.vagrant/
 /web/nbproject/private/
+/web/Modules/Admin/node_modules/

@@ -1,9 +1,6 @@
 @extends('admin::layouts.master')
 
 @section('content')
-    <h1>Hello World</h1>
-
-    <p>
-        This view is loaded from module: {!! config('admin.name') !!}
-    </p>
+    <p>This is my body content.</p>
+    Hello, my name is {{ 'Nixforest' }}
 @endsection
