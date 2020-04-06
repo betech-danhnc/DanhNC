@@ -1,0 +1,11 @@
+- name: PHP CLI install
+  shell: sudo yum install php-cli php-zip wget unzip
+  ignore_errors: yes
+
+- name: download the Composer installer
+  shell: php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+  ignore_errors: yes
+
+- name: setup Composer
+  shell: sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer
+  ignore_errors: yes
