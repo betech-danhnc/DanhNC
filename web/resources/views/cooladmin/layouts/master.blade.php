@@ -38,7 +38,7 @@ $theme = 'themes/cooladmin/';
     <body class="animsition">
         <div class="page-wrapper">
             <!-- MENU SIDEBAR-->
-            @include('admin::layouts.menu')
+            @include('cooladmin.layouts.menu')
             <!-- END MENU SIDEBAR-->
 
             <!-- PAGE CONTAINER-->
@@ -146,7 +146,7 @@ $theme = 'themes/cooladmin/';
                     </div>
                 </header>
 
-                @include('admin::layouts.menu_mobile')
+                @include('cooladmin.layouts.menu_mobile')
                 <!-- END HEADER DESKTOP-->
 
                 <!-- BREADCRUMB-->

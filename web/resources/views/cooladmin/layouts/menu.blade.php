@@ -12,8 +12,8 @@ $theme = 'themes/cooladmin/';
             <div class="image img-cir img-120">
                 <img src="{{ url($theme . 'images/icon/avatar-big-01.jpg') }}" alt="John Doe" />
             </div>
-            <h4 class="name">john doe111</h4>
-            <a href="#">Sign out</a>
+            <h4 class="name">john doe</h4>
+            <a href="{{ url('/logout') }}"> Signout </a>
         </div>
         <nav class="navbar-sidebar2">
             <ul class="list-unstyled navbar__list">
