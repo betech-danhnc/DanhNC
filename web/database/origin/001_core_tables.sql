@@ -100,21 +100,22 @@ CREATE TABLE `admin_users` (
     `id`            int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'Id',
     `username`      varchar(50) NOT NULL COMMENT 'Username use for login',
     `phone`         varchar(200) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'Phone number',
-    `email`         varchar(80) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'Email',
+    `email`         varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'Email',
     `gender`        tinyint(1) UNSIGNED NOT NULL DEFAULT '1' COMMENT 'Gender',
-    `password_hash` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT 'Password hash',
-    `temp_password` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT 'Temp password',
+    `password`          varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'Password',
+    `remember_token`    varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'Remember token',
     `fullname`      varchar(150) DEFAULT NULL COMMENT 'User fullname',
     `address`       text,
     `house_numbers` text COMMENT 'House number',
     `district_id`   mediumint(5) UNSIGNED NOT NULL DEFAULT '0' COMMENT 'District',
     `ward_id`       mediumint(7) UNSIGNED NOT NULL DEFAULT '0' COMMENT 'Ward',
     `street_id`     mediumint(7) UNSIGNED NOT NULL DEFAULT '0' COMMENT 'Streets',
-    `role_id`       smallint(11) UNSIGNED NOT NULL COMMENT 'Id of roles',
+    `role_id`       smallint(11) UNSIGNED NOT NULL DEFAULT '0' COMMENT 'Id of roles',
     `birthday`      date DEFAULT NULL COMMENT 'Birthday',
     `status`        tinyint(3) UNSIGNED NOT NULL DEFAULT '1' COMMENT 'Status',
-    `created_date`  datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Created date',
+    `created_at`    datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Created date',
     `created_by`    int(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT 'Created by',
+    `updated_at`    timestamp NULL DEFAULT NULL,
 PRIMARY KEY ( `id` )
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 COMMENT='Users';
 
@@ -128,9 +129,9 @@ INSERT INTO `admin_controller_actions` (`id`, `controller_id`, `action`, `name`,
 (20, 5, 'update', 'Update', 1, 1, '2019-04-06 17:12:27', 0),
 (21, 5, 'delete', 'Delete', 1, 1, '2019-04-06 17:12:40', 0);
 
-INSERT INTO `admin_users` (`id`, `username`, `phone`, `email`, `gender`, `password_hash`, `temp_password`, `fullname`, `address`, `house_numbers`, `district_id`, `ward_id`, `street_id`, `role_id`, `birthday`, `status`, `created_date`, `created_by`) VALUES
-(1, 'superadmin', '0123456789', 'superadmin@system.com', 1, 'bc4f26a7b672f987c37138ac778dfec4', ' 5dc0ec382aff00.29235343', 'Super Admin', '1', '1', 1, 1, 1, 1, '2019-03-01', 1, '2019-03-31 21:05:15', 100),
-(2, 'admin', '-', '-', 1, 'bc4f26a7b672f987c37138ac778dfec4', ' 5dc0ec382aff00.29235343', '-', '1', '62', 1, 1, 34, 2, '1996-03-27', 1, '2019-04-05 17:42:57', 1);
+-- INSERT INTO `admin_users` (`id`, `username`, `phone`, `email`, `gender`, `password_hash`, `temp_password`, `fullname`, `address`, `house_numbers`, `district_id`, `ward_id`, `street_id`, `role_id`, `birthday`, `status`, `created_date`, `created_by`) VALUES
+-- (1, 'superadmin', '0123456789', 'superadmin@system.com', 1, 'bc4f26a7b672f987c37138ac778dfec4', ' 5dc0ec382aff00.29235343', 'Super Admin', '1', '1', 1, 1, 1, 1, '2019-03-01', 1, '2019-03-31 21:05:15', 100),
+-- (2, 'admin', '-', '-', 1, 'bc4f26a7b672f987c37138ac778dfec4', ' 5dc0ec382aff00.29235343', '-', '1', '62', 1, 1, 34, 2, '1996-03-27', 1, '2019-04-05 17:42:57', 1);
 
 DROP TABLE IF EXISTS `admin_settings`;
 CREATE TABLE `admin_settings` (
