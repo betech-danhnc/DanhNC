@@ -26,7 +26,8 @@ class AdminModuleController extends Controller
      */
     public function create()
     {
-        return view('admin::admin-modules.create');
+        $model = new AdminModule();
+        return view('admin::admin-modules.edit', compact('model'));
     }
 
     /**
