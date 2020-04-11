@@ -16,7 +16,7 @@ class AdminModuleController extends Controller
     public function index()
     {
         $models = AdminModule::latest()->paginate(5);
-        return view('admin::admin-modules.index', compact('models'))
+        return view('admin-modules.index', compact('models'))
                 ->with('i', (request()->input('page', 1) - 1) * 5); 
     }
 
@@ -26,7 +26,7 @@ class AdminModuleController extends Controller
      */
     public function create()
     {
-        return view('admin::create');
+        return view('admin::admin-modules.create');
     }
 
     /**
@@ -36,7 +36,15 @@ class AdminModuleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'description' => 'required',
+        ]);
+  
+        AdminModule::create($request->all());
+   
+        return redirect()->route('admin-modules.index')
+                        ->with('success','Module created successfully.');
     }
 
     /**
@@ -46,7 +54,8 @@ class AdminModuleController extends Controller
      */
     public function show($id)
     {
-        return view('admin::show');
+        $model = AdminModule::find($id);
+        return view('admin::admin-modules.show', compact('model'));
     }
 
     /**
@@ -56,7 +65,8 @@ class AdminModuleController extends Controller
      */
     public function edit($id)
     {
-        return view('admin::edit');
+        $model = AdminModule::find($id);
+        return view('admin::admin-modules.edit', compact('model'));
     }
 
     /**
@@ -67,7 +77,16 @@ class AdminModuleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'description' => 'required',
+        ]);
+  
+        $model = AdminModule::find($id);
+        $model->update($request->all());
+   
+        return redirect()->route('admin-modules.index')
+                        ->with('success','Module updated successfully.');
     }
 
     /**
@@ -77,6 +96,10 @@ class AdminModuleController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $model = AdminModule::find($id);
+        $model->delete();
+  
+        return redirect()->route('admin-modules.index')
+                        ->with('success','Module deleted successfully');
     }
 }

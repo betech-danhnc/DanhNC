@@ -80,8 +80,11 @@ $theme = Config::get('app.theme');
                                 <div class="table-data-feature">
                                     <a class="item" href="{{ route('admin-modules.show',$item->id) }}"><i class="zmdi zmdi-mail-send"></i></a>
                                     <a class="item" href="{{ route('admin-modules.edit',$item->id) }}"><i class="zmdi zmdi-edit"></i></a>
-                                    </button>
-                                <button class="item" data-toggle="tooltip" data-placement="top" type="submit"><i class="zmdi zmdi-delete"></i></button>
+                                    <form action="{{ route('admin-modules.destroy', $item->id) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="item" data-toggle="tooltip" data-placement="top" type="submit"><i class="zmdi zmdi-delete"></i></button>
+                                </form>
                                 </div>
                         </td>
                     </tr>

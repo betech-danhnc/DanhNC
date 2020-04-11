@@ -37,7 +37,7 @@ $theme = Config::get('app.theme');
                     <i class="zmdi zmdi-filter-list"></i>filters</button>
             </div>
             <div class="table-data__tool-right">
-                    <a class="btn btn-success" href="{{ route('admin-modules.create') }}"><i class="zmdi zmdi-plus"></i> Create New Module</a>
+                <a class="btn btn-success" href="{{ route('admin-modules.create') }}"><i class="zmdi zmdi-plus"></i> Create New Module</a>
                 <div class="rs-select2--dark rs-select2--sm rs-select2--dark2">
                     <select class="js-select2" name="type">
                         <option selected="selected">Export</option>
@@ -77,19 +77,22 @@ $theme = Config::get('app.theme');
                         <td>{{ $item->name }}</td>
                         <td>{{ $item->description }}</td>
                         <td>
-                                <div class="table-data-feature">
-                                    <a class="item" href="{{ route('admin-modules.show',$item->id) }}"><i class="zmdi zmdi-mail-send"></i></a>
-                                    <a class="item" href="{{ route('admin-modules.edit',$item->id) }}"><i class="zmdi zmdi-edit"></i></a>
-                                    </button>
-                                <button class="item" data-toggle="tooltip" data-placement="top" type="submit"><i class="zmdi zmdi-delete"></i></button>
-                                </div>
+                            <div class="table-data-feature">
+                                <a class="item" href="{{ route('admin-modules.show', $item->id) }}"><i class="zmdi zmdi-mail-send"></i></a>
+                                <a class="item" href="{{ route('admin-modules.edit', $item->id) }}"><i class="zmdi zmdi-edit"></i></a>
+                                <form action="{{ route('admin-modules.destroy', $item->id) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="item" data-toggle="tooltip" data-placement="top" type="submit"><i class="zmdi zmdi-delete"></i></button>
+                                </form>
+                            </div>
                         </td>
                     </tr>
                     <tr class="spacer"></tr>
                     @endforeach
                 </tbody>
             </table>
-            
+
             {!! $models->links() !!}
         </div>
         <!-- END DATA TABLE -->
