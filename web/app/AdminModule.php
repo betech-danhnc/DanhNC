@@ -2,9 +2,9 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use App\Entities\BaseModel;
 
-class AdminModule extends Model
+class AdminModule extends BaseModel
 {
     protected $fillable = [
         'name', 'description', 'status', 'created_by'
