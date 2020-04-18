@@ -6,9 +6,6 @@ $theme = Config::get('app.theme');
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="title m-b-md">
-            Laravel
-        </div>
         <br>
         <ul>
             <li>
@@ -22,6 +19,12 @@ $theme = Config::get('app.theme');
             </li>
             <li>
                 <a href="https://local-blab.betech-vn.com/register">Register</a>
+            </li>
+            <li>
+                <a href="https://local-blab.betech-vn.com/admin/admin-modules">Modules</a>
+            </li>
+            <li>
+                <a href="https://local-blab.betech-vn.com/admin/admin-controllers">Controllers</a>
             </li>
         </ul>
     </div>

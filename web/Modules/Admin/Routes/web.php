@@ -14,4 +14,5 @@
 Route::prefix('admin')->group(function() {
     Route::get('/', 'AdminController@index');
     Route::resource('admin-modules','AdminModuleController');
+    Route::resource('admin-controllers','AdminControllerController');
 });
