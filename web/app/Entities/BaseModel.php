@@ -16,7 +16,17 @@ use Illuminate\Database\Eloquent\Model;
  */
 class BaseModel extends Model
 {
+    /** Fillable array */
     protected $fillable = [
         'id', 'status', 'created_by', 'created_at', 'updated_at'
     ];
+    
+    /**
+     * Get rules validate model
+     * @return Array
+     */
+    public static function getRules()
+    {
+        return [];
+    }
 }
