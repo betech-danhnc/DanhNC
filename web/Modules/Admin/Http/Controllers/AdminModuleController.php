@@ -4,10 +4,10 @@ namespace Modules\Admin\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Illuminate\Routing\Controller;
 use Modules\Admin\Entities\AdminModule;
+use App\Http\Controllers\BaseController;
 
-class AdminModuleController extends Controller
+class AdminModuleController extends BaseController
 {
     /**
      * Display a listing of the resource.
