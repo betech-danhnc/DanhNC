@@ -16,6 +16,7 @@ namespace Modules\Admin\Entities;
  */
 class AdminController extends AdminModel
 {
+    /** Fillable array */
     protected $fillable = [
         'name', 'module_id', 'description', 'status', 'created_by'
     ];

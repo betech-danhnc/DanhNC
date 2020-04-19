@@ -10,7 +10,7 @@ $theme = Config::get('app.theme');
             <h3 class="title-5 m-b-35">Edit</h3>
         </div>
         <div class="pull-right">
-            <a class="btn btn-primary" href="{{ route('admin-controllers.index') }}"> Back</a>
+            <a class="btn btn-primary" href="{{ route('admin-actions.index') }}"> Back</a>
         </div>
     </div>
 </div>
@@ -35,11 +35,11 @@ $theme = Config::get('app.theme');
                 </div>
             </div>
             @if (isset($model->id))
-            <form action="{{ route('admin-controllers.update', $model->id) }}" method="POST">
+            <form action="{{ route('admin-actions.update', $model->id) }}" method="POST">
                 @csrf
                 @method('PUT')
             @else
-            <form action="{{ route('admin-controllers.store') }}" method="POST">
+            <form action="{{ route('admin-actions.store') }}" method="POST">
                 @csrf
             @endif
                 <div class="card-body card-block">
@@ -53,18 +53,26 @@ $theme = Config::get('app.theme');
                         </div>
                         <div class="row form-group">
                             <div class="col col-md-3">
-                                <label for="description" class=" form-control-label">Description</label>
+                                <label for="key" class=" form-control-label">Key</label>
                             </div>
                             <div class="col-12 col-md-9">
-                                <input type="text" name="description" placeholder="Description" class="form-control" value="{{ $model->description }}">
+                                <input type="text" name="key" placeholder="Key" class="form-control" value="{{ $model->key }}">
                             </div>
                         </div>
                          <div class="row form-group">
                              <div class="col col-md-3">
-                                 <label for="module_id" class=" form-control-label">Module Id</label>
+                                 <label for="controller_id" class=" form-control-label">Controller Id</label>
                              </div>
                              <div class="col-12 col-md-9">
-                                 <input type="text" name="module_id" placeholder="Module Id" class="form-control" value="{{ $model->module_id }}">
+                                 <input type="text" name="controller_id" placeholder="Controller Id" class="form-control" value="{{ $model->controller_id }}">
+                             </div>
+                         </div>
+                         <div class="row form-group">
+                             <div class="col col-md-3">
+                                 <label for="permission" class=" form-control-label">Permission</label>
+                             </div>
+                             <div class="col-12 col-md-9">
+                                 <input type="text" name="permission" placeholder="Permission" class="form-control" value="{{ $model->permission }}">
                              </div>
                          </div>
                 </div>
