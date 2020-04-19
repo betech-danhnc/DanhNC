@@ -26,6 +26,9 @@ $theme = Config::get('app.theme');
             <li>
                 <a href="https://local-blab.betech-vn.com/admin/admin-controllers">Controllers</a>
             </li>
+            <li>
+                <a href="https://local-blab.betech-vn.com/admin/admin-actions">Actions</a>
+            </li>
         </ul>
     </div>
 </div>
