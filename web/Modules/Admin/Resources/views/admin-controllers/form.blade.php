@@ -9,7 +9,7 @@ $theme = Config::get('app.theme');
         {{ Form::label('name', null, ['class' => 'form-control-label']) }}
     </div>
     <div class="col-12 col-md-9">
-        {{ Form::text('name', null, ['class' => 'form-control']) }}
+        {{ Form::text('name', $model->name, ['class' => 'form-control']) }}
     </div>
 </div>
 <div class="row form-group">
@@ -17,7 +17,7 @@ $theme = Config::get('app.theme');
         {{ Form::label('description', null, ['class' => 'form-control-label']) }}
     </div>
     <div class="col-12 col-md-9">
-        {{ Form::text('description', null, ['class' => 'form-control']) }}
+        {{ Form::text('description', $model->description, ['class' => 'form-control']) }}
     </div>
 </div>
 <div class="row form-group">
@@ -25,7 +25,7 @@ $theme = Config::get('app.theme');
         {{ Form::label('module_id', null, ['class' => 'form-control-label']) }}
     </div>
     <div class="col-12 col-md-9">
-        {{ Form::text('module_id', null, ['class' => 'form-control']) }}
+        {{ Form::text('module_id', $model->module_id, ['class' => 'form-control']) }}
     </div>
 </div>
 @endsection

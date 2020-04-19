@@ -35,9 +35,9 @@ $theme = Config::get('app.theme');
             <td>{{ $item->module_id }}</td>
             <td>
                 <div class="table-data-feature">
-                    <a class="item" href="{{ route('admin-controllers.show', $item->id) }}"><i class="zmdi zmdi-mail-send"></i></a>
-                    <a class="item" href="{{ route('admin-controllers.edit', $item->id) }}"><i class="zmdi zmdi-edit"></i></a>
-                    <form action="{{ route('admin-controllers.destroy', $item->id) }}" method="POST">
+                    <a class="item" href="{{ route($controller . '.show', $item->id) }}"><i class="zmdi zmdi-mail-send"></i></a>
+                    <a class="item" href="{{ route($controller . '.edit', $item->id) }}"><i class="zmdi zmdi-edit"></i></a>
+                    <form action="{{ route($controller . '.destroy', $item->id) }}" method="POST">
                         @csrf
                         @method('DELETE')
                         <button class="item" data-toggle="tooltip" data-placement="top" type="submit"><i class="zmdi zmdi-delete"></i></button>
