@@ -18,7 +18,7 @@ namespace Modules\Admin\Entities;
 class AdminAction extends AdminModel
 {
     //-----------------------------------------------------
-    // Permission
+    // Constants
     //-----------------------------------------------------
     /** Private: action only can access if user/role was assign */
     const PERMISSION_PRIVATE        = '1';
@@ -26,14 +26,87 @@ class AdminAction extends AdminModel
     const PERMISSION_PROTECTED      = '2';
     /** Public: action can access by any user (include guest) */
     const PERMISSION_PUBLIC         = '3';
+    
+    //-----------------------------------------------------
+    // Properties
+    //-----------------------------------------------------
     /** Fillable array */
     protected $fillable = [
         'name', 'controller_id', 'key', 'permission', 'status', 'created_by'
     ];
     
+    //-----------------------------------------------------
+    // Utility methods
+    //-----------------------------------------------------
     /**
-     * Get rules validate model
-     * @return Array
+     * {@inheritdoc}
+     */
+    public function getShowLink() {
+        return url('admin/admin-actions', ['id' => $this->id]);
+    }
+    
+    /**
+     * Get controller name
+     * @return string Name of controller
+     */
+    public function getController() {
+        $controller = AdminController::find($this->controller_id);
+        if ($controller) {
+            return $controller->name;
+        }
+        return '';
+    }
+    
+    /**
+     * Get link to controller show
+     * @return string Html string
+     */
+    public function getControllerLink() {
+        $controller = AdminController::find($this->controller_id);
+        if ($controller) {
+            return $controller->getShowLinkTag('name');
+        }
+        return '';
+    }
+    
+    /**
+     * Get permission string
+     * @return string Permission as string
+     */
+    public function getPermissionValue() {
+        if (isset(self::getArrayPermission()[$this->permission])) {
+            return self::getArrayPermission()[$this->permission];
+        }
+        return '';
+    }
+    /**
+     * Get permission as html format
+     * @return string Permission as html format
+     */
+    public function getPermission() {
+        if (isset(self::getArrayPermission()[$this->permission])) {
+            $permission = self::getArrayPermission()[$this->permission];
+            switch ($this->permission) {
+                case self::PERMISSION_PRIVATE:
+                    return '<span class="badge badge-danger">' . $permission . '</span>';
+                case self::PERMISSION_PROTECTED:
+                    return '<span class="badge badge-warning">' . $permission . '</span>';
+                case self::PERMISSION_PUBLIC:
+                    return '<span class="badge badge-success">' . $permission . '</span>';
+
+                default:
+                    break;
+            }
+            return;
+        }
+        return '';
+    }
+    
+    //-----------------------------------------------------
+    // Static methods
+    //-----------------------------------------------------
+    /**
+     * {@inheritdoc}
      */
     public static function getRules()
     {
@@ -42,6 +115,18 @@ class AdminAction extends AdminModel
             'key'           => 'required',
             'controller_id' => 'required',
             'permission'    => 'required',
+        ];
+    }
+    
+    /**
+     * Get array permission
+     * @return Array Key=>Value array
+     */
+    public static function getArrayPermission() {
+        return [
+            self::PERMISSION_PRIVATE    => 'Private',
+            self::PERMISSION_PROTECTED  => 'Protected',
+            self::PERMISSION_PUBLIC     => 'Public',
         ];
     }
 }

@@ -23,6 +23,9 @@ class BaseController extends Controller
     /** Name of controller */
     public $controllerName  =   '';
     
+    //-----------------------------------------------------
+    // Utility methods
+    //-----------------------------------------------------
     /**
      * Get string name of module and controller
      * module::controller

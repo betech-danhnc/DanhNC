@@ -28,7 +28,9 @@ Show action: {{ $model->name }}
         <label class=" form-control-label">Controller Id</label>
     </div>
     <div class="col-12 col-md-9">
-        <p class="form-control-static">{{ $model->controller_id }}</p>
+        @php
+        echo $model->getControllerLink();
+        @endphp
     </div>
 </div>
 <div class="row form-group">
@@ -36,7 +38,9 @@ Show action: {{ $model->name }}
         <label class=" form-control-label">Permission</label>
     </div>
     <div class="col-12 col-md-9">
-        <p class="form-control-static">{{ $model->permission }}</p>
+        @php
+        echo $model->getPermission();
+        @endphp
     </div>
 </div>
 @endsection

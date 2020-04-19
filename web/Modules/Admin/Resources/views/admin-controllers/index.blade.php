@@ -32,7 +32,11 @@ $theme = Config::get('app.theme');
             <td>{{ ++$i }}</td>
             <td>{{ $item->name }}</td>
             <td>{{ $item->description }}</td>
-            <td>{{ $item->module_id }}</td>
+            <td>
+                @php
+                echo $item->getModuleLink();
+                @endphp
+            </td>
             <td>
                 <div class="table-data-feature">
                     <a class="item" href="{{ route($controller . '.show', $item->id) }}"><i class="zmdi zmdi-mail-send"></i></a>

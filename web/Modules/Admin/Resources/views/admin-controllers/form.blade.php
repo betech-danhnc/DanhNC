@@ -1,4 +1,5 @@
 @php
+use \Modules\Admin\Entities\AdminModule;
 $theme = Config::get('app.theme');
 @endphp
 @extends($theme . '.layouts.form')
@@ -25,7 +26,7 @@ $theme = Config::get('app.theme');
         {{ Form::label('module_id', null, ['class' => 'form-control-label']) }}
     </div>
     <div class="col-12 col-md-9">
-        {{ Form::text('module_id', $model->module_id, ['class' => 'form-control']) }}
+        {{ Form::select('module_id', AdminModule::loadItemsAsSelectArray(), $model->module_id, ['class' => 'form-control']) }}
     </div>
 </div>
 @endsection

@@ -33,8 +33,16 @@ $theme = Config::get('app.theme');
             <td>{{ ++$i }}</td>
             <td>{{ $item->name }}</td>
             <td>{{ $item->key }}</td>
-            <td>{{ $item->controller_id }}</td>
-            <td>{{ $item->permission }}</td>
+            <td>
+                @php
+                echo $item->getControllerLink();
+                @endphp
+            </td>
+            <td>
+                @php
+                echo $item->getPermission();
+                @endphp
+            </td>
             <td>
                 <div class="table-data-feature">
                     <a class="item" href="{{ route($controller . '.show', $item->id) }}"><i class="zmdi zmdi-mail-send"></i></a>

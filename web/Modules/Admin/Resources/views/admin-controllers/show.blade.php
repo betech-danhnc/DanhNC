@@ -28,7 +28,9 @@ Show controller: {{ $model->name }}
         <label class=" form-control-label">Module Id</label>
     </div>
     <div class="col-12 col-md-9">
-        <p class="form-control-static">{{ $model->module_id }}</p>
+        @php
+        echo $model->getModuleLink();
+        @endphp
     </div>
 </div>
 @endsection

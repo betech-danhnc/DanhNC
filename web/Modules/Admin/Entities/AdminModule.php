@@ -15,14 +15,32 @@ namespace Modules\Admin\Entities;
  */
 class AdminModule extends AdminModel
 {
+    //-----------------------------------------------------
+    // Constants
+    //-----------------------------------------------------
+    //-----------------------------------------------------
+    // Properties
+    //-----------------------------------------------------
     /** Fillable array */
     protected $fillable = [
         'name', 'description', 'status', 'created_by'
     ];
     
+    //-----------------------------------------------------
+    // Utility methods
+    //----------------------------------------------------
     /**
-     * Get rules validate model
-     * @return Array
+     * {@inheritdoc}
+     */
+    public function getShowLink() {
+        return url('admin/admin-modules', ['id' => $this->id]);
+    }
+    
+    //-----------------------------------------------------
+    // Static methods
+    //-----------------------------------------------------
+    /**
+     * {@inheritdoc}
      */
     public static function getRules()
     {

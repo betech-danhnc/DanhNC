@@ -69,9 +69,8 @@
     $ vagrant up --provision
 ```
 
-------------------------------------------
-|------------- Cheat sheets -------------|
-------------------------------------------
+# Cheat sheets
+
 ## Form
 ``` php
     {{ Form::open(['url' => 'foo/bar', 'method' => 'put']) }}
