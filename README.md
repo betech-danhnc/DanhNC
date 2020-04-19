@@ -68,3 +68,31 @@
     $ cd {path/to/projectroot}
     $ vagrant up --provision
 ```
+
+# Cheat sheets
+
+## Form
+``` php
+    {{ Form::open(['url' => 'foo/bar', 'method' => 'put']) }}
+    // Point to url
+    {{ Form::close() }}
+
+    {{ Form::open(['route' => ['route.name', $user->id]]) }}
+    // Point to named routes
+    {{ Form::close() }}
+
+    {{ Form::open(['action' => ['Controller@method', $user->id]]) }}
+    // Point to action
+    {{ Form::close() }}
+
+    {{ Form::open(['url' => 'foo/bar', 'files' => true]) }}
+    // Accept file uploads
+    {{ Form::close() }}
+```
+
+## If statement
+``` php
+    @if (condition)
+    @else
+    @endif
+```

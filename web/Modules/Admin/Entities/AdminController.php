@@ -16,14 +16,54 @@ namespace Modules\Admin\Entities;
  */
 class AdminController extends AdminModel
 {
+    //-----------------------------------------------------
+    // Properties
+    //-----------------------------------------------------
     /** Fillable array */
     protected $fillable = [
         'name', 'module_id', 'description', 'status', 'created_by'
     ];
     
+    //-----------------------------------------------------
+    // Utility methods
+    //-----------------------------------------------------
     /**
-     * Get rules validate model
-     * @return Array
+     * {@inheritdoc}
+     */
+    public function getShowLink() {
+        return url('admin/admin-controllers', ['id' => $this->id]);
+    }
+    
+    /**
+     * Get module name
+     * @return string Name of module
+     */
+    public function getModule() {
+        $module = AdminModule::find($this->module_id);
+        if ($module) {
+            return $module->name;
+        }
+        return '';
+    }
+    
+    /**
+     * Get link to module show
+     * @return string Html string
+     */
+    public function getModuleLink() {
+        $module = AdminModule::find($this->module_id);
+        if ($module) {
+            return $module->getShowLinkTag('name');
+        }
+        return '';
+    }
+
+
+    //-----------------------------------------------------
+    // Static methods
+    //-----------------------------------------------------
+    /**
+     * {@inheritdoc}
      */
     public static function getRules()
     {
