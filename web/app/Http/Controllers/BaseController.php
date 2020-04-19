@@ -69,8 +69,9 @@ class BaseController extends Controller
      */
     public function index()
     {
+        $controller = $this->controllerName;
         $models = $this->modelClass::latest()->paginate(5);
-        return view($this->getIndexView(), compact('models'))
+        return view($this->getIndexView(), compact('models', 'controller'))
                 ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
@@ -82,7 +83,8 @@ class BaseController extends Controller
     public function create()
     {
         $model = new $this->modelClass();
-        return view($this->getFormView(), compact('model'));
+        $controller = $this->controllerName;
+        return view($this->getFormView(), compact('model', 'controller'));
     }
 
     /**
@@ -108,7 +110,8 @@ class BaseController extends Controller
     public function show($id)
     {
         $model = $this->modelClass::find($id);
-        return view($this->getShowView(), compact('model'));
+        $controller = $this->controllerName;
+        return view($this->getShowView(), compact('model', 'controller'));
     }
 
     /**
@@ -120,7 +123,8 @@ class BaseController extends Controller
     public function edit($id)
     {
         $model = $this->modelClass::find($id);
-        return view($this->getFormView(), compact('model'));
+        $controller = $this->controllerName;
+        return view($this->getFormView(), compact('model', 'controller'));
     }
 
     /**
