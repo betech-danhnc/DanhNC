@@ -36,14 +36,10 @@ class AdminController extends AdminModel
     
     /**
      * Get module name
-     * @return string Name of module
+     * @return AdminModule Module object
      */
     public function getModule() {
-        $module = AdminModule::find($this->module_id);
-        if ($module) {
-            return $module->name;
-        }
-        return '';
+        return AdminModule::find($this->module_id);
     }
     
     /**
@@ -51,7 +47,7 @@ class AdminController extends AdminModel
      * @return string Html string
      */
     public function getModuleLink() {
-        $module = AdminModule::find($this->module_id);
+        $module = $this->getModule();
         if ($module) {
             return $module->getShowLinkTag('name');
         }
