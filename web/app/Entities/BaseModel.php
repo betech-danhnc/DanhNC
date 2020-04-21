@@ -22,9 +22,7 @@ class BaseModel extends Model
     // Properties
     //-----------------------------------------------------
     /** Fillable array */
-    protected $fillable = [
-        'id', 'status', 'created_by', 'created_at', 'updated_at'
-    ];
+   
     
     //-----------------------------------------------------
     // Utility methods
