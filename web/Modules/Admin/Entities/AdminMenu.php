@@ -191,6 +191,29 @@ class AdminMenu extends AdminModel
         $retVal = '';
         switch ($type) {
             case self::TYPE_BACK_END:
+                $arrMenu = AdminMenu::where('parent_id', 0)
+                    ->get();
+                foreach ($arrMenu as $parentMenu) {
+                    $retVal .= '<li class="active has-sub">';
+                    $retVal .=  '<a class="js-arrow" href="#">';
+                    $retVal .=      '<i class="' . $parentMenu->icon . '"></i>' . $parentMenu->name;
+                    $retVal .=      '<span class="arrow">';
+                    $retVal .=          '<i class="fas fa-angle-down"></i>';
+                    $retVal .=      '</span>';
+                    $retVal .=  '</a>';
+                    $arrChildren = AdminMenu::where('parent_id', $parentMenu->id)
+                        ->get();
+                    $retVal .=  '<ul class="list-unstyled navbar__sub-list js-sub-list">';
+                    foreach ($arrChildren as $childMenu) {
+                        $retVal .=  '<li>';
+                        $retVal .=      '<a href="' . $childMenu->getFullUrl() . '">';
+                        $retVal .=          '<i class="fas fa-tachometer-alt"></i>' . $childMenu->name;
+                        $retVal .=      '</a>';
+                        $retVal .=  '</li>';
+                    }
+                    $retVal .=  '</ul>';
+                    $retVal .= '</li>';
+                }
                 
                 break;
             case self::TYPE_FRONT_END:

@@ -34,12 +34,18 @@ class AdminControllerSeeder extends Seeder
             ],
             [
                 'id'            => '4',
+                'name'          => 'admin-menu',
+                'module_id'     => '1',
+                'description'   => 'Menu',
+            ],
+            [
+                'id'            => '5',
                 'name'          => 'api-tokens',
                 'module_id'     => '2',
                 'description'   => 'API tokens',
             ],
             [
-                'id'            => '5',
+                'id'            => '6',
                 'name'          => 'api-requests',
                 'module_id'     => '2',
                 'description'   => 'API requests',

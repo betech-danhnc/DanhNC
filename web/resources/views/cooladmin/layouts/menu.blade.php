@@ -1,4 +1,5 @@
 <?php
+use Modules\Admin\Entities\AdminMenu;
 $theme = 'themes/cooladmin/';
 ?>
 <aside class="menu-sidebar2">
@@ -17,33 +18,10 @@ $theme = 'themes/cooladmin/';
         </div>
         <nav class="navbar-sidebar2">
             <ul class="list-unstyled navbar__list">
-                <li class="active has-sub">
-                    <a class="js-arrow" href="#">
-                        <i class="fas fa-tachometer-alt"></i>Dashboard
-                        <span class="arrow">
-                            <i class="fas fa-angle-down"></i>
-                        </span>
-                    </a>
-                    <ul class="list-unstyled navbar__sub-list js-sub-list">
-                        <li>
-                            <a href="index.html">
-                                <i class="fas fa-tachometer-alt"></i>Dashboard 1</a>
-                        </li>
-                        <li>
-                            <a href="index2.html">
-                                <i class="fas fa-tachometer-alt"></i>Dashboard 2</a>
-                        </li>
-                        <li>
-                            <a href="index3.html">
-                                <i class="fas fa-tachometer-alt"></i>Dashboard 3</a>
-                        </li>
-                        <li>
-                            <a href="index4.html">
-                                <i class="fas fa-tachometer-alt"></i>Dashboard 4</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
+                @php
+                echo AdminMenu::generateMenu(AdminMenu::TYPE_BACK_END);
+                @endphp
+<!--                <li>
                     <a href="inbox.html">
                         <i class="fas fa-chart-bar"></i>Inbox</a>
                     <span class="inbox-num">3</span>
@@ -153,7 +131,7 @@ $theme = 'themes/cooladmin/';
                                 <i class="fas fa-font"></i>Typography</a>
                         </li>
                     </ul>
-                </li>
+                </li>-->
             </ul>
         </nav>
     </div>

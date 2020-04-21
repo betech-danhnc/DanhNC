@@ -62,6 +62,18 @@ class AdminMenuSeeder extends Seeder
                 'type'              => AdminMenu::TYPE_BACK_END,
                 'parent_id'         => '1',
             ],
+            [
+                'id'                => '5',
+                'action_id'         => '10',
+                'view'              => '',
+                'link'              => '',
+                'icon'              => '',
+                'icon_thumb'        => '',
+                'display_order'     => '4',
+                'name'              => 'Menu',
+                'type'              => AdminMenu::TYPE_BACK_END,
+                'parent_id'         => '1',
+            ],
         ];
         AdminMenu::insert($data);
     }
