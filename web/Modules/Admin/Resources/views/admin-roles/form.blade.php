@@ -17,7 +17,7 @@ $theme = Config::get('app.theme');
         {{ Form::label('code', null, ['class' => 'form-control-label']) }}
     </div>
     <div class="col-12 col-md-9">
-        {{ Form::text('description', $model->code, ['class' => 'form-control']) }}
+        {{ Form::text('code', $model->code, ['class' => 'form-control']) }}
     </div>
 </div>
 <div class="row form-group">

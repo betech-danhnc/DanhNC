@@ -47,14 +47,10 @@ class AdminAction extends AdminModel
     
     /**
      * Get controller name
-     * @return string Name of controller
+     * @return AdminController AdminController model
      */
     public function getController() {
-        $controller = AdminController::find($this->controller_id);
-        if ($controller) {
-            return $controller->name;
-        }
-        return '';
+        return AdminController::find($this->controller_id);
     }
     
     /**
@@ -62,13 +58,13 @@ class AdminAction extends AdminModel
      * @return string Html string
      */
     public function getControllerLink() {
-        $controller = AdminController::find($this->controller_id);
-        if ($controller) {
-            return $controller->getShowLinkTag('name');
+        $mController = $this->getController();
+        if ($mController) {
+            return $mController->getShowLinkTag('name');
         }
         return '';
     }
-    
+
     /**
      * Get permission string
      * @return string Permission as string
@@ -79,6 +75,7 @@ class AdminAction extends AdminModel
         }
         return '';
     }
+    
     /**
      * Get permission as html format
      * @return string Permission as html format
