@@ -27,7 +27,7 @@ class AdminRole extends AdminModel
     //-----------------------------------------------------
     /** Fillable array */
     protected $fillable = [
-        'name','code','working_type','isStaff','weight','status', 'created_by'
+        'name', 'code', 'working_type', 'isStaff','weight', 'status', 'created_by'
     ];
     
     //-----------------------------------------------------
