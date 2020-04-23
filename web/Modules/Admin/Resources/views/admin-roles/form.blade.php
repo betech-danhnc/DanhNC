@@ -20,6 +20,8 @@ $theme = Config::get('app.theme');
         {{ Form::text('code', $model->code, ['class' => 'form-control']) }}
     </div>
 </div>
+<?php
+/*
 <div class="row form-group">
     <div class="col col-md-3">
         {{ Form::label('working_type', null, ['class' => 'form-control-label']) }}
@@ -36,6 +38,8 @@ $theme = Config::get('app.theme');
         {{ Form::text('isStaff', $model->isStaff, ['class' => 'form-control']) }}
     </div>
 </div>
+*/
+?>
 <div class="row form-group">
     <div class="col col-md-3">
         {{ Form::label('weight', null, ['class' => 'form-control-label']) }}
