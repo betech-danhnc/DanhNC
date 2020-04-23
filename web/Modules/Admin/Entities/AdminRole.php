@@ -2,17 +2,21 @@
 
 namespace Modules\Admin\Entities;
 
-
-//This is the model class for table "admin_modules".
- 
-  protected $id             
-  protected $name           
-  protected $description   
-  protected $status            
-  protected $created_by        
-  protected $created_at    
-  protected $updated_at    
-
+/**
+ * This is the model class for table "admin_modules".
+ *
+ * @property int $id                Id
+ * @property string $name           Name
+ * @property string $code           Description
+ * @property int $working_type      Working Type
+ * @property int $status            status
+ * @property int $weight            weight
+ * @property int $weight            isStaff
+ * @property int $created_by        Created by
+ * @property string $created_at     Created date
+ * @property string $updated_at     Updated date
+ */
+class Adm
 class AdminRole extends AdminModel
 {
     //-----------------------------------------------------
