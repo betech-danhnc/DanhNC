@@ -8,15 +8,14 @@ namespace Modules\Admin\Entities;
  * @property int $id                Id
  * @property string $name           Name
  * @property string $code           Description
- * @property int $working_type      Working Type
- * @property int $status            status
- * @property int $weight            weight
- * @property int $weight            isStaff
+ * @property int $weight            Weight
+ * @property int $status            Status
  * @property int $created_by        Created by
  * @property string $created_at     Created date
  * @property string $updated_at     Updated date
  */
-class AdminRole extends AdminModel {
+class AdminRole extends AdminModel
+{
     //-----------------------------------------------------
     // Constants
     //-----------------------------------------------------
@@ -26,7 +25,7 @@ class AdminRole extends AdminModel {
 
     /** Fillable array */
     protected $fillable = [
-        'name', 'code', 'working_type', 'isStaff', 'weight', 'status', 'created_by'
+        'name', 'code', 'weight', 'status', 'created_by'
     ];
 
     //-----------------------------------------------------
@@ -51,10 +50,7 @@ class AdminRole extends AdminModel {
         return [
             'name' => 'required',
             'code' => 'required',
-            'working_type' => 'required',
-            'isStaff' => 'required',
             'weight' => 'required',
-            'status' => 'required',
         ];
     }
 

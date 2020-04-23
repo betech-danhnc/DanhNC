@@ -25,34 +25,10 @@ Show module: {{ $model->name }}
 </div>
 <div class="row form-group">
     <div class="col col-md-3">
-        <label class=" form-control-label">Working Type</label>
-    </div>
-    <div class="col-12 col-md-9">
-        <p class="form-control-static">{{ $model->working_type }}</p>
-    </div>
-</div>
-<div class="row form-group">
-    <div class="col col-md-3">
-        <label class=" form-control-label">is Staff</label>
-    </div>
-    <div class="col-12 col-md-9">
-        <p class="form-control-static">{{ $model->isStaff}}</p>
-    </div>
-</div>
-<div class="row form-group">
-    <div class="col col-md-3">
         <label class=" form-control-label">Weight</label>
     </div>
     <div class="col-12 col-md-9">
         <p class="form-control-static">{{ $model->weight }}</p>
-    </div>
-</div>
-<div class="row form-group">
-    <div class="col col-md-3">
-        <label class=" form-control-label">status</label>
-    </div>
-    <div class="col-12 col-md-9">
-        <p class="form-control-static">{{ $model->status }}</p>
     </div>
 </div>
 @endsection

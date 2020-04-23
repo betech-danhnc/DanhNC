@@ -16,10 +16,7 @@ $theme = Config::get('app.theme');
             <th>No</th>
             <th>Name</th>
             <th>Code</th>
-            <th>Working Type</th>
-            <th>Is Staff</th>
             <th>Weight</th>
-            <th>Status</th>
             <th></th>
         </tr>
     </thead>
@@ -35,10 +32,7 @@ $theme = Config::get('app.theme');
             <td>{{ ++$i }}</td>
             <td>{{ $item->name }}</td>
             <td>{{ $item->code}}</td>
-            <td>{{ $item->working_type}}</td>
-            <td>{{ $item->isStaff}}</td>
             <td>{{ $item->weight}}</td>
-            <td>{{ $item->status}}</td>
             <td>
                 <div class="table-data-feature">
                     <a class="item" href="{{ route($controller . '.show', $item->id) }}"><i class="zmdi zmdi-mail-send"></i></a>

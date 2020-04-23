@@ -17,8 +17,6 @@ class CreateAdminRolesTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('code');
-            $table->tinyInteger('working_type')->default(1);
-            $table->tinyInteger('isStaff')->default(1);
             $table->smallInteger('weight')->default(1);
             $table->tinyInteger('status') ->default(1);
             $table->integer('created_by')->default(0);
