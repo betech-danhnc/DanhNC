@@ -20,6 +20,14 @@ $theme = Config::get('app.theme');
         {{ Form::text('code', $model->code, ['class' => 'form-control']) }}
     </div>
 </div>
+<div class="row form-group">
+    <div class="col col-md-3">
+        {{ Form::label('status', null, ['class' => 'form-control-label']) }}
+    </div>
+    <div class="col-12 col-md-9">
+        {{ Form::text('status', $model->status, ['class' => 'form-control']) }}
+    </div>
+</div>
 <?php
 /*
 <div class="row form-group">
