@@ -22,7 +22,7 @@ class BaseModel extends Model
     // Properties
     //-----------------------------------------------------
     /** Fillable array */
-   
+    
     
     //-----------------------------------------------------
     // Utility methods
