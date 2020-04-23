@@ -98,6 +98,27 @@ class AdminActionSeeder extends Seeder
                 'key'               => 'edit',
                 'permission'        => AdminAction::PERMISSION_PRIVATE,
             ],
+            [
+                'id'                => '13',
+                'controller_id'     => '7',
+                'name'              => 'List',
+                'key'               => 'index',
+                'permission'        => AdminAction::PERMISSION_PRIVATE,
+            ],
+            [
+                'id'                => '14',
+                'controller_id'     => '7',
+                'name'              => 'Create',
+                'key'               => 'create',
+                'permission'        => AdminAction::PERMISSION_PRIVATE,
+            ],
+            [
+                'id'                => '15',
+                'controller_id'     => '7',
+                'name'              => 'Update',
+                'key'               => 'edit',
+                'permission'        => AdminAction::PERMISSION_PRIVATE,
+            ],
         ];
         AdminAction::insert($data);
     }

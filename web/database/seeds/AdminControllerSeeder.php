@@ -50,6 +50,12 @@ class AdminControllerSeeder extends Seeder
                 'module_id'     => '2',
                 'description'   => 'API requests',
             ],
+            [
+                'id'            => '7',
+                'name'          => 'admin-roles',
+                'module_id'     => '1',
+                'description'   => 'Roles',
+            ],
         ];
         AdminController::insert($data);
     }

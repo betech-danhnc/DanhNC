@@ -17,4 +17,5 @@ Route::prefix('admin')->group(function() {
     Route::resource('admin-controllers','AdminControllerController');
     Route::resource('admin-actions','AdminActionController');
     Route::resource('admin-menu','AdminMenuController');
+    Route::resource('admin-roles','AdminRoleController');
 });
